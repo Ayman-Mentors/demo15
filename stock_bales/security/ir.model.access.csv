@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+stock_bale,stock bale,model_stock_bale,,1,1,1,1
+stock_bale_line,stock bale line,model_stock_bale_line,,1,1,1,1
