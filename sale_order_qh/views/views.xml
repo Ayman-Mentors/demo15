@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <record id="sale_order_inherit_1" model="ir.ui.view">
+        <field name="name">sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="project_name"/>
+                <field name="quotation_type"/>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                <field name="cairo_hand" optional="hide"/>
+                <field name="cairo_re" optional="hide"/>
+                <field name="alex_hand" optional="hide"/>
+                <field name="alex_re" optional="hide"/>
+                <field name="reminder_alex" optional="hide"/>
+                <field name="mina_hand" optional="hide"/>
+                <field name="mine_res" optional="hide"/>
+                <field name="reminder_mina" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='qty_delivered']" position="after">
+                <field name="remainder_quantity" optional="hide"/>
+            </xpath>
+
+        </field>
+    </record>
+      <!-- Inherit Form View to Modify it -->
+      <record id="inherit_stock_location" model="ir.ui.view">
+          <field name="name">stock.location</field>
+          <field name="model">stock.location</field>
+          <field name="inherit_id" ref="stock.view_location_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='usage']" position="after">
+                  <field name="location_name"/>
+                  <field name="reserved_location"/>
+                  <!-- Add your fields or attributes here -->
+              </xpath>
+
+          </field>
+      </record>
+    <!-- Inherit Form View to Modify it -->
+
+
+  </data>
+</odoo>
